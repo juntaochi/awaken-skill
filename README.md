@@ -1,3 +1,9 @@
+<p align="center">
+<a href="./README.md"><img src="https://img.shields.io/badge/lang-English-3B82F6?style=for-the-badge" alt="English"></a>
+&nbsp;
+<a href="./README.zh.md"><img src="https://img.shields.io/badge/语言-简体中文-9CA3AF?style=for-the-badge" alt="简体中文"></a>
+</p>
+
 # awaken
 
 A Claude Code skill that scaffolds deep reasoning, research, and meta-cognition by creating conditions for dormant knowledge to surface, rather than by encoding rigid rules.
@@ -22,6 +28,49 @@ Five self-questions, applied invisibly, each with a preferred *externalization* 
 | Q3 | Tension + Munger inversion | `Write` failure-modes list to scratch file |
 | Q4 | Perspective traversal (≥3 standpoints) | Parallel sub-agents for high-stakes |
 | Q5 | Pattern naming + verification | `WebSearch` / `Grep` to verify before inventing |
+
+## Philosophical foundations
+
+`awaken` is not a wrapper around "think harder" — each of its five self-questions draws on a specific philosophical tradition, and the skill's whole commitment (scaffolding conditions rather than encoding rules) has a clear lineage.
+
+### Q1 — Real Objective + Specific Gap
+
+Draws on **Edmund Husserl's phenomenological *epoche*** (ἐποχή, "bracketing") — the discipline of suspending judgment about what is present until it has been carefully described — and on **Descartes's methodological doubt** as a practice of isolating what can be genuinely known from what is being inferred or assumed. Q1 asks: what did the user actually *give* you as signal, versus what are you *bracketing in* as inference?
+
+### Q2 — Dimension Elevation
+
+Draws on **isomorphism as a cognitive move**, a theme running from **Douglas Hofstadter's *Gödel, Escher, Bach*** through contemporary analogy-based reasoning research. Hofstadter's "seeing-as" names the recognition that the same deep structure lives under very different surfaces — and the article this skill is distilled from turns that insight into a prompt-engineering operation: force the model up a dimension of abstraction, cross-domain, and *then* back down with a borrowed solution shape.
+
+### Q3 — Tension + Inversion
+
+Combines two traditions. First, **Isaiah Berlin's value pluralism**: some tensions are irreducible — you cannot simultaneously maximize speed and correctness, precision and coverage, autonomy and safety — and mature judgment lives *with* the tension rather than pretending it isn't there. Second, **Charlie Munger's inversion**, which itself inherits from **Carl Jacobi's** *invert, always invert* — the mathematical move of solving a problem by asking what would make it fail. Q3 holds both at once: describe the shape of the tension (don't resolve it), then externalize the failure-mode check.
+
+### Q4 — Perspective Traversal
+
+Draws on **Hannah Arendt's *representative thinking*** (*Between Past and Future*): judgment worthy of the name requires considering how a matter appears from standpoints other than one's own. Arendt adapted this from **Kant's *sensus communis*** — the capacity to judge from "the standpoint of everyone else" as a condition of non-private judgment. The skill operationalizes this: no judgment is locked in until ≥3 *structurally different* standpoints have been produced AND any disagreement between them has been kept alive rather than silently resolved.
+
+### Q5 — Pattern Naming + Verification
+
+Draws on **Wittgenstein's later philosophy** (*Philosophical Investigations*): meaning is use, and language-games reveal what a concept actually does in practice. Naming a pattern — especially inventing a new name when no textbook term fits — is the move of introducing a concept into play to see whether it makes subsequent thinking sharper or more diffuse. The verification step (check whether your coinage is a disguised rename of *Goodhart's law*, *Ringelmann effect*, or *Conway's law*) is discipline against conceptual inflation.
+
+### The three cognitive stances
+
+The skill explicitly asks the agent to rotate between three classical stances rather than staying locked in one:
+
+- **Analyzer (Cartesian)** — doubt, test, demand evidence, break down
+- **Perceiver (Phenomenological)** — describe what *is* before judging; hold without commitment (Husserl: *zu den Sachen selbst*, "to the things themselves")
+- **Practitioner (Wittgensteinian)** — imagine *using / doing* this, not just describing it (meaning as use within a form of life)
+
+Each stance is adequate for some moves and blind to others. Stuck reasoning is often stuck-in-one-stance — the move is to switch.
+
+### The meta-principle: emergence over rules
+
+The deepest commitment of the skill is that **rigid rules suppress emergence, while scaffolds create conditions for it**. Two sources converge:
+
+- **Gadamer's hermeneutic circle** (*Truth and Method*): understanding is not linear but *spiraling* — the whole informs understanding of parts, which revises understanding of the whole, indefinitely. You cannot collapse this into a rule set without killing what makes it work.
+- **Complex-systems emergence** (Prigogine, Santa Fe Institute lineage): novel properties arise from interactions between components *under the right constraints* — you can create conditions for emergence but you cannot encode the emergent property directly.
+
+This is why `awaken` is built as a scaffold for conditions rather than a set of rules for outcomes.
 
 ## Benchmark
 
