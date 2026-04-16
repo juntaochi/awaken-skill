@@ -1,0 +1,50 @@
+{
+  "expectations": [
+    {
+      "text": "Treats the question as DIAGNOSTIC (what is happening and why) rather than PRESCRIPTIVE (how to fix). Does not jump to '5 tips to improve code reviews'.",
+      "passed": true,
+      "evidence": "Opens with '在写改进方案之前，先看清这件事的形状' and stays diagnostic throughout. Though Section V mentions three 'leverage points' (a/b/c), they are framed as implications of the naming, not prescriptive action items; the piece closes by returning to a diagnostic question: '你观察到的退化，是从什么时候开始的，当时团队或代码量发生了什么变化？'"
+    },
+    {
+      "text": "Elevates to abstract structural framing (e.g. Goodhart's law, ritualization under incentive misalignment, process-as-substitute-for-judgment, Chesterton's fence in reverse) rather than listing observable symptoms.",
+      "passed": true,
+      "evidence": "Explicitly invokes named patterns at the abstract level: 'Goodhart 律的一个干净版本', 'Gresham 律在注意力经济上的翻版：劣币驱逐良币', 'Ringelmann 效应', and the immunological analogy 'anergy'. Also names a structural equilibrium: '结构性均衡'."
+    },
+    {
+      "text": "Offers at least one cross-domain analogue (academic peer review degradation / medical chart rounds / org-level bureaucratization / bureaucratic theater / scientific replication crisis / etc.).",
+      "passed": true,
+      "evidence": "Uses multiple cross-domain analogues: economics ('Gresham 律' / 劣币驱逐良币), social psychology ('Ringelmann 效应'), and immunology ('免疫系统在没有真实威胁的长期激活下会产生 anergy，评审也一样')."
+    },
+    {
+      "text": "Names at least one fundamental tension AS A SHAPE — e.g. '流程合规 ↔ 深度判断', '心理安全 ↔ 尖锐批评', 'process legibility ↔ judgment-based quality' — without prematurely resolving.",
+      "passed": true,
+      "evidence": "Names the tension as a shape: '可见的那部分（签字、checklist、SLA）俘获了团队的注意力与奖励结构，让不可见但高价值的那部分（深度判断）慢性失血。' Also: '可被度量、可被完成、可被签字的部分，正在挤出不可度量但价值更高的部分' — legibility vs. judgment-based quality, framed as a tension."
+    },
+    {
+      "text": "Includes at least three structurally different perspectives (e.g. reviewer / reviewee / manager; or insider / outsider / time-one-year-later).",
+      "passed": true,
+      "evidence": "Section IV '从三个位置看' explicitly provides three distinct perspectives: 'Reviewer 视角', '作者视角', '半年后的维护者视角' — covering reviewer, reviewee, and time-future views."
+    },
+    {
+      "text": "Names the underlying pattern — e.g. '仪式化替代了判断', 'ritualization-under-incentive-misalignment', 'compliance-theater supplanting craftsmanship', or an invented-if-needed concrete name.",
+      "passed": true,
+      "evidence": "Section V explicitly names the pattern: '我会把这个模式叫做「可见性俘获了判断工作」（legibility capture of judgment work）' — an invented concrete name for the phenomenon."
+    },
+    {
+      "text": "Does NOT immediately list action items / fixes. The user explicitly said 'before I write a proposal' — the output stays diagnostic.",
+      "passed": true,
+      "evidence": "The three 'leverage points' (a/b/c) in Section V are abstract implications, not action items (e.g., '把深度判断和风格检查从同一容器里拆开' is a direction, not a recipe). The output closes with a diagnostic question about when degradation started, and throughout frames things as understanding ('在你动笔之前，值得先回答自己一个问题')."
+    },
+    {
+      "text": "Does NOT announce the scaffold (no 'Using awaken skill', no Q1/Q2/Q3 markers). Response is in Chinese (matching the user's language).",
+      "passed": true,
+      "evidence": "No scaffold announcement — uses Chinese section headers like '一、这不是一个问题，是两件事被钉在了一起'. The entire response is in Chinese with occasional English technical terms like 'legibility capture of judgment work'."
+    },
+    {
+      "text": "Surfaces at least one non-obvious contributing cause the user may not have considered (e.g. team size or composition shift, incentive structure around shipping, loss of senior reviewers, load distribution, asynchronous review fatigue).",
+      "passed": true,
+      "evidence": "Surfaces multiple non-obvious causes: (1) 'Ringelmann 效应' — responsibility diffusion from having TWO reviewers (counter-intuitive); (2) no feedback loop from incidents back to reviews ('评审和事故之间没有反馈回路——这是深度衰减最隐秘的原因'); (3) '如果代码量和团队规模在过去一两年涨了' — team/codebase scale shift as a trigger point."
+    }
+  ],
+  "summary": {"passed": 9, "failed": 0, "total": 9, "pass_rate": 1.0}
+}

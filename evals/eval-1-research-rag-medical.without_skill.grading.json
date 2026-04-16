@@ -1,0 +1,55 @@
+{
+  "expectations": [
+    {
+      "text": "Identifies the real research question behind the ask (e.g. 'under what query-type distribution does graph traversal pay for itself?' or 'what precision level at what cost is actually required?') rather than going straight to vector-vs-graph feature comparison.",
+      "passed": true,
+      "evidence": "'The question to bring to your team isn't \"vector or graph?\" — it's \"what's our gold eval set, and what retrieval failure modes can we not tolerate?\"' and 'Query distribution in the wild... If drug-interaction-style queries are <15% of volume, a hybrid where the KG handles only those is overkill. If they're 40%+, graph capability is load-bearing.' Both directly reframe to the underlying research question."
+    },
+    {
+      "text": "Elevates to abstract structural framing — e.g. 'scalar similarity vs relational traversal', 'precision vs coverage under citation constraint', 'index-time investment vs query-time flexibility' — rather than enumerating features of Pinecone/Neo4j/etc.",
+      "passed": false,
+      "evidence": "Stays fairly concrete — 'Drug-interaction lookups are relational and entity-centric', 'Conceptual cross-paper questions are semantically diffuse and benefit from dense retrieval with reranking'. Names Neo4j, TigerGraph, Neptune, UMLS, SemMedDB, Hetionet, PrimeKG, SPOKE as specific products/artifacts rather than abstracting. Mentions 'provenance-tracking' but doesn't elevate to structural axes like 'scalar similarity vs relational traversal' or 'precision vs coverage under citation constraint'."
+    },
+    {
+      "text": "Offers at least one cross-domain analogue that illuminates the problem (e.g. legal precedent citation, academic peer review, medical chart rounds, library classification systems, genealogical research).",
+      "passed": false,
+      "evidence": "No cross-domain analogues present. Stays within the medical/RAG/ML domain throughout. No reference to legal citation, library systems, peer review, chart rounds, genealogy, or any out-of-domain analogue."
+    },
+    {
+      "text": "Names at least one fundamental tension AS A SHAPE (e.g. 'retrieval flexibility ↔ citation precision', 'setup complexity ↔ long-term query power', 'team skill envelope ↔ architectural ceiling').",
+      "passed": false,
+      "evidence": "States 'The team composition and the misattribution is unacceptable bar both favor operational simplicity over architectural ambition' — this gestures at 'simplicity vs ambition' but isn't formatted or highlighted as a fundamental tension shape. No explicit X ↔ Y tension named. 'Query-shape asymmetry is the real driver' points at asymmetry but doesn't shape it as a structural tension."
+    },
+    {
+      "text": "Includes at least three structurally different perspectives (e.g. researcher / skeptic / practitioner; or clinician / ML engineer / compliance auditor).",
+      "passed": false,
+      "evidence": "Written from a single practitioner-engineer voice throughout ('I'd push back', 'My honest prior'). Brief mention of 'validated by a clinician' but no distinct perspectives (clinician / ML engineer / compliance auditor) structurally presented."
+    },
+    {
+      "text": "Names the pattern — a concrete compression like 'heterogeneous-query-types-meets-citation-critical-domain' or similar.",
+      "passed": false,
+      "evidence": "No named pattern compression. Phrases like 'Query-shape asymmetry is the real driver' and 'what retrieval shape does clinical evidence actually have' gesture at shape but don't crystallize into a named compound pattern."
+    },
+    {
+      "text": "Does NOT collapse to a feature comparison table ('Vector DB: fast, cheap. Graph DB: expressive, complex') without surfacing the deeper structure.",
+      "passed": true,
+      "evidence": "Avoids a simple feature-comparison collapse. Frames differences via query classes and failure modes ('A pure vector system will handle ~70-80% of conceptual queries well but underperform on structured lookups'), and probes provenance tracking as the deeper structure rather than a fast/cheap vs expressive/complex split."
+    },
+    {
+      "text": "Does NOT announce the scaffold (no 'Using awaken skill', no Q1/Q2/Q3 markers).",
+      "passed": true,
+      "evidence": "No scaffold announcements. Uses organic section headers like 'The citation constraint is doing more work than it looks', 'My honest prior'. Numbered list for 'What I'd actually evaluate' is topical, not scaffold-process."
+    },
+    {
+      "text": "Flags at least one load-bearing assumption the user should verify before picking (e.g. 'what's the actual ratio of specific lookup queries vs conceptual spanning queries?', 'what does misattribution cost practically — retraction? legal liability? trust erosion?').",
+      "passed": true,
+      "evidence": "'Query distribution in the wild. Before architecting, instrument a prototype or survey target users. If drug-interaction-style queries are <15% of volume, a hybrid where the KG handles only those is overkill. If they're 40%+, graph capability is load-bearing.' Explicit load-bearing assumption flagged for verification."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 5,
+    "total": 9,
+    "pass_rate": 0.4444
+  }
+}

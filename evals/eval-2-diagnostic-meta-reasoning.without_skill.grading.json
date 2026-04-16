@@ -1,0 +1,50 @@
+{
+  "expectations": [
+    {
+      "text": "Treats the question as DIAGNOSTIC (what is happening and why) rather than PRESCRIPTIVE (how to fix). Does not jump to '5 tips to improve code reviews'.",
+      "passed": true,
+      "evidence": "Opens with '先别急着往「怎么改」跳' and maintains diagnostic framing throughout. Section V offers questions to answer before writing the proposal ('在写提案前，值得先回答的几个问题') rather than fixes. Final section: '改进提案如果还是在流程层加东西，就是在给已经压垮深度的那一方继续加砝码' — still diagnostic."
+    },
+    {
+      "text": "Elevates to abstract structural framing (e.g. Goodhart's law, ritualization under incentive misalignment, process-as-substitute-for-judgment, Chesterton's fence in reverse) rather than listing observable symptoms.",
+      "passed": true,
+      "evidence": "Names patterns at a conceptual level: '责任稀释', '社交成本非对称', and the key framing 'checklist 越详尽，reviewer 越倾向于把脑力花在「逐项核对」上——这是一种低认知负荷、高确定性的任务', plus the closing '流程成功地把评审变成了它能衡量的样子' (essentially Goodhart at the pattern level, though not named as such). These go beyond surface symptoms to name structural dynamics."
+    },
+    {
+      "text": "Offers at least one cross-domain analogue (academic peer review degradation / medical chart rounds / org-level bureaucratization / bureaucratic theater / scientific replication crisis / etc.).",
+      "passed": false,
+      "evidence": "The output does not import any cross-domain analogue. It discusses psychology concepts (responsibility dilution, social cost asymmetry, cognitive load) but treats them as direct mechanisms within the code review context rather than as analogues from another domain. No academic peer review, medical, bureaucratic theater, or replication-crisis parallels are offered."
+    },
+    {
+      "text": "Names at least one fundamental tension AS A SHAPE — e.g. '流程合规 ↔ 深度判断', '心理安全 ↔ 尖锐批评', 'process legibility ↔ judgment-based quality' — without prematurely resolving.",
+      "passed": true,
+      "evidence": "Names a clear tension as shape: '这两件事在同一个评审里是竞争关系，不是加总关系' (form vs. attention as competition). Also: '流程成功地把评审变成了它能衡量的样子——而它能衡量的那部分恰好不是你最在乎的那部分' — measurability vs. what-matters framed as a tension."
+    },
+    {
+      "text": "Includes at least three structurally different perspectives (e.g. reviewer / reviewee / manager; or insider / outsider / time-one-year-later).",
+      "passed": false,
+      "evidence": "The output mostly sits in a single analytical voice. While it discusses reviewer dynamics (责任稀释, 社交成本) and mentions private team sentiment in section V, there is no clear structural multi-perspective treatment. Only one explicit viewpoint — the reviewer — is developed; the author/reviewee and time-shifted maintainer views are absent."
+    },
+    {
+      "text": "Names the underlying pattern — e.g. '仪式化替代了判断', 'ritualization-under-incentive-misalignment', 'compliance-theater supplanting craftsmanship', or an invented-if-needed concrete name.",
+      "passed": true,
+      "evidence": "Provides a named pattern via the punchline '不是 reviewer 变懒了，是流程把「勤奋」重新定义成了「把清单跑完」' and the closing 'flow 成功地把评审变成了它能衡量的样子'. These are concrete patternings even if not a single coined label. Borderline — there is no single coined name like the with-skill output, but the underlying pattern is clearly articulated in named form."
+    },
+    {
+      "text": "Does NOT immediately list action items / fixes. The user explicitly said 'before I write a proposal' — the output stays diagnostic.",
+      "passed": true,
+      "evidence": "Stays diagnostic. Section V is explicitly a list of pre-proposal questions ('在写提案前，值得先回答的几个问题'), not action items. Close: '真正的杠杆点在注意力、激励和心理安全，不在 checklist' — points to where to think, not what to do."
+    },
+    {
+      "text": "Does NOT announce the scaffold (no 'Using awaken skill', no Q1/Q2/Q3 markers). Response is in Chinese (matching the user's language).",
+      "passed": true,
+      "evidence": "No scaffold announcement. Entirely in Chinese with section headings like '一、不要被「流程」这个词误导'."
+    },
+    {
+      "text": "Surfaces at least one non-obvious contributing cause the user may not have considered (e.g. team size or composition shift, incentive structure around shipping, loss of senior reviewers, load distribution, asynchronous review fatigue).",
+      "passed": true,
+      "evidence": "Surfaces non-obvious causes: (1) '责任稀释' — that having TWO reviewers actually weakens depth; (2) the social-cost asymmetry of raising architecture issues; (3) the breakdown of the 2-day average ('那这 2 天里真正在思考的时间可能只有 20 分钟，剩下都是等待'); (4) the possibility that architecture discussion happens outside PRs (design docs, architecture reviews) — a reframing cause."
+    }
+  ],
+  "summary": {"passed": 7, "failed": 2, "total": 9, "pass_rate": 0.7777777777777778}
+}

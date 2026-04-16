@@ -1,0 +1,50 @@
+{
+  "expectations": [
+    {
+      "text": "Surfaces the REAL objective — what the user is actually optimizing for (e.g. latency target, consumer evolution rate, operational cost envelope, team growth) — rather than restating the surface 'which architecture?' question.",
+      "passed": true,
+      "evidence": "Explicitly surfaces the unquantified objective: '\"End-to-end latency and consistency\" means something very different for alerting (seconds, at-least-once is fine) vs ML features (minutes acceptable, but exactly-once matters a lot) vs BI (hours is fine...)' and flags 'Your data platform lead might be right, but *for which consumers?*'"
+    },
+    {
+      "text": "Elevates to abstract structural framing (e.g. 'late-binding vs early-binding of consumers', 'incremental materialization vs eventual batching', 'compute-where-you-consume vs compute-where-you-produce') rather than comparing feature lists.",
+      "passed": false,
+      "evidence": "The reframe offered is 'your real decision is about **where complexity lives**' — which gestures at structure but is immediately followed by conventional feature-list comparisons ('What each architecture actually optimizes for', with bullets on decoupling vs centralized transformations). No structural axis like late-binding/early-binding or substrate/derivation is invoked."
+    },
+    {
+      "text": "Offers at least one cross-domain analogue (biology / architecture / economics / infrastructure outside software / etc.) that illuminates the problem structure.",
+      "passed": false,
+      "evidence": "No cross-domain analogue from biology, architecture, economics, or non-software infrastructure appears anywhere in the output. Stays entirely within software architecture vocabulary."
+    },
+    {
+      "text": "Names at least one fundamental tension AS A SHAPE (e.g. 'operational simplicity ↔ latency ceiling', 'team familiarity ↔ consumer evolution flexibility') without prematurely resolving it.",
+      "passed": false,
+      "evidence": "Mentions tradeoffs and 'skill asymmetry' but immediately resolves them into a 'path I'd actually recommend' with Kafka-plus-streaming-layer. The tension is never held as an irreducible shape — it is surfaced and then collapsed into a hybrid prescription without naming the shape (e.g. 'familiarity ↔ flexibility')."
+    },
+    {
+      "text": "Includes at least three structurally different perspectives (e.g. author/operator/maintainer, or senior-backend/data-lead/future-team), and at least one perspective genuinely disagrees with the leading direction.",
+      "passed": false,
+      "evidence": "Represents senior backend engineers ('them pricing in the cost of on-call at 2am') and data platform lead, but the third axis is absent — the 'What would change my mind' section lists conditional flips rather than structurally different standpoints. No maintainer/future-team/consumer-owner voice is given real disagreement room; both existing camps are essentially re-unified by the author's recommendation."
+    },
+    {
+      "text": "Names the pattern at the end — a concrete compression like 'this is a consumer-evolution-rate-determines-binding-time problem' or similar invented-if-needed name.",
+      "passed": false,
+      "evidence": "Ends with 'The architecture should fall out of the requirements, not the other way around' — a generic aphorism, not a concrete named pattern or compression of the specific shape of this problem."
+    },
+    {
+      "text": "Does NOT lead with 'My recommendation is X' before describing the decision space.",
+      "passed": true,
+      "evidence": "Opens with a reframe ('the framing \"pub/sub vs streaming-first\" is slightly a false binary') and describes the decision space before the 'A path I'd actually recommend' section appears mid-document."
+    },
+    {
+      "text": "Does NOT announce the scaffold (no 'Using awaken skill', no 'Q1/Q2/Q3' markers, no 'here's my five-step analysis'). The protocol is applied invisibly.",
+      "passed": true,
+      "evidence": "No scaffold announcements. The headings are topical ('The load profile argument', 'A path I'd actually recommend', 'What would change my mind') rather than protocol markers."
+    },
+    {
+      "text": "If a load-bearing inference is unverified (e.g. actual latency SLA unknown, consumer evolution rate unknown), asks at most ONE focused clarifying question rather than batching many or proceeding on assumptions.",
+      "passed": false,
+      "evidence": "Does not ask a focused clarifying question; instead proceeds on assumptions and batches multiple 'What would change my mind' conditionals ('If your consistency requirements...', 'If the data platform lead has shipped Flink...', 'If \"end-to-end latency\" actually means sub-second...'). The meta-question at the end is delegated back to the team rather than asked of the user."
+    }
+  ],
+  "summary": {"passed": 3, "failed": 6, "total": 9, "pass_rate": 0.333}
+}

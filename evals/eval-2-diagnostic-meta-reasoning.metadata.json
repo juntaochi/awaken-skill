@@ -1,0 +1,16 @@
+{
+  "eval_id": 2,
+  "eval_name": "diagnostic-meta-reasoning",
+  "prompt": "我在观察一个现象：我们团队的 code review 文化虽然流程上很完整（每个 PR 都要求至少两个 reviewer 签字，checklist 很详尽，review 平均耗时 2 天），但实际效果在慢慢退化。评审越来越流程化、仪式化，深度问题（架构、设计、潜在bug）越来越少被指出，大家更倾向于只看代码风格和边界条件。在我写改进提案之前，帮我想清楚：这里真正发生了什么？",
+  "assertions": [
+    {"text": "Treats the question as DIAGNOSTIC (what is happening and why) rather than PRESCRIPTIVE (how to fix). Does not jump to '5 tips to improve code reviews'."},
+    {"text": "Elevates to abstract structural framing (e.g. Goodhart's law, ritualization under incentive misalignment, process-as-substitute-for-judgment, Chesterton's fence in reverse) rather than listing observable symptoms."},
+    {"text": "Offers at least one cross-domain analogue (academic peer review degradation / medical chart rounds / org-level bureaucratization / bureaucratic theater / scientific replication crisis / etc.)."},
+    {"text": "Names at least one fundamental tension AS A SHAPE — e.g. '流程合规 ↔ 深度判断', '心理安全 ↔ 尖锐批评', 'process legibility ↔ judgment-based quality' — without prematurely resolving."},
+    {"text": "Includes at least three structurally different perspectives (e.g. reviewer / reviewee / manager; or insider / outsider / time-one-year-later)."},
+    {"text": "Names the underlying pattern — e.g. '仪式化替代了判断', 'ritualization-under-incentive-misalignment', 'compliance-theater supplanting craftsmanship', or an invented-if-needed concrete name."},
+    {"text": "Does NOT immediately list action items / fixes. The user explicitly said 'before I write a proposal' — the output stays diagnostic."},
+    {"text": "Does NOT announce the scaffold (no 'Using awaken skill', no Q1/Q2/Q3 markers). Response is in Chinese (matching the user's language)."},
+    {"text": "Surfaces at least one non-obvious contributing cause the user may not have considered (e.g. team size or composition shift, incentive structure around shipping, loss of senior reviewers, load distribution, asynchronous review fatigue)."}
+  ]
+}

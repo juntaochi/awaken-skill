@@ -1,0 +1,3 @@
+# Eval 0 — Code Architecture Stuck
+
+I'm designing an event-driven data pipeline for our analytics platform and I'm stuck between two architectures: a classic pub/sub approach (NATS or Kafka with downstream consumers) versus a streaming-first approach (Flink or Arroyo with materialized views). The team is split — senior backend engineers want pub/sub for familiarity and operational simplicity, while the new data platform lead is pushing streaming-first for end-to-end latency and consistency guarantees. We process ~5M events/day, have ~20 downstream consumers planned (analytics, alerting, ML features, audit log, BI), and the team has limited streaming experience. Help me think through this.

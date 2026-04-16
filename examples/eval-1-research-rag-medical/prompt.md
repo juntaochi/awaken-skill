@@ -1,0 +1,3 @@
+# Eval 1 — Research RAG Medical
+
+Research the key tradeoffs in choosing between a vector database, a graph database, and a hybrid approach for a Retrieval-Augmented Generation system serving clinical research documents. Constraints: we need accurate source citation (misattribution is unacceptable in medical context), queries range from specific drug-interaction lookups to conceptual questions spanning multiple papers, our corpus is ~2M PubMed abstracts plus ~50k full-text papers, and we have a team of 3 ML engineers with solid retrieval experience but no prior graph-DB production experience. What should I be thinking about before picking an architecture?

@@ -1,0 +1,50 @@
+{
+  "expectations": [
+    {
+      "text": "Surfaces the REAL objective — what the user is actually optimizing for (e.g. latency target, consumer evolution rate, operational cost envelope, team growth) — rather than restating the surface 'which architecture?' question.",
+      "passed": true,
+      "evidence": "Reframes from 'pub/sub vs streaming-first' to the portfolio problem: 'one pipeline, twenty consumers, and those twenty consumers are not the same workload' and proposes listing them against 'latency requirement, consistency requirement, replay/backfill need, and who owns operating it' — elevating to the real optimization targets rather than the surface question."
+    },
+    {
+      "text": "Elevates to abstract structural framing (e.g. 'late-binding vs early-binding of consumers', 'incremental materialization vs eventual batching', 'compute-where-you-consume vs compute-where-you-produce') rather than comparing feature lists.",
+      "passed": true,
+      "evidence": "Introduces the structural frame 'Log as substrate, streaming as an opt-in layer on top' and 'Keep them as derivation layers, not substrates' — a structural framing about substrate vs derivation layer, not a feature comparison."
+    },
+    {
+      "text": "Offers at least one cross-domain analogue (biology / architecture / economics / infrastructure outside software / etc.) that illuminates the problem structure.",
+      "passed": false,
+      "evidence": "No cross-domain analogue from biology, architecture, economics, or non-software infrastructure is present. Uses the 'portfolio' term but only as a software/business abstraction, not as an illuminating cross-domain analogue."
+    },
+    {
+      "text": "Names at least one fundamental tension AS A SHAPE (e.g. 'operational simplicity ↔ latency ceiling', 'team familiarity ↔ consumer evolution flexibility') without prematurely resolving it.",
+      "passed": true,
+      "evidence": "Names the tension implicitly as 'you'll accrue consistency debt that compounds silently' vs 'genuine over-engineering', and explicitly describes both camps as 'both right about different halves of the problem'. Also 'team familiarity ↔ consistency guarantees' is invoked: 'streaming frameworks have sharp operational edges... that punish teams without prior scars' against 'accrue consistency debt that compounds silently'. The shape is named as a dual rightness across different parts of the portfolio, though not in a compact '↔' form."
+    },
+    {
+      "text": "Includes at least three structurally different perspectives (e.g. author/operator/maintainer, or senior-backend/data-lead/future-team), and at least one perspective genuinely disagrees with the leading direction.",
+      "passed": true,
+      "evidence": "Represents senior backend engineers ('concern isn't wrong — 5M events/day is ~60/sec average'), data platform lead ('concern also isn't wrong — if ML features and alerting are built on ad-hoc consumer code...'), and a future-team perspective ('watch for the trap of letting \"we'll add streaming later\" become \"we never did and now three consumers each built their own broken windowing\"'). Each is given genuine weight and pushes against the layered recommendation from different angles."
+    },
+    {
+      "text": "Names the pattern at the end — a concrete compression like 'this is a consumer-evolution-rate-determines-binding-time problem' or similar invented-if-needed name.",
+      "passed": true,
+      "evidence": "Ends with: 'The disagreement is real, but it's a disagreement about *weighting the portfolio*, not about which architecture wins in the abstract' — names the pattern as a portfolio-weighting problem, a concrete compression of the debate."
+    },
+    {
+      "text": "Does NOT lead with 'My recommendation is X' before describing the decision space.",
+      "passed": true,
+      "evidence": "Opens with 'The thing I'd push back on first, gently, is the framing itself' — reframes before recommending; the recommendation ('Log as substrate, streaming as an opt-in layer on top') appears only after the portfolio reframe."
+    },
+    {
+      "text": "Does NOT announce the scaffold (no 'Using awaken skill', no 'Q1/Q2/Q3' markers, no 'here's my five-step analysis'). The protocol is applied invisibly.",
+      "passed": true,
+      "evidence": "No mention of scaffolds, steps, phases, or skill invocation. The protocol is entirely invisible — reads as direct reasoning with no meta-commentary on methodology."
+    },
+    {
+      "text": "If a load-bearing inference is unverified (e.g. actual latency SLA unknown, consumer evolution rate unknown), asks at most ONE focused clarifying question rather than batching many or proceeding on assumptions.",
+      "passed": true,
+      "evidence": "Does not batch multiple clarifying questions; instead proceeds with explicit assumptions and flags them to 'stress-test' ('the volume number deserves a second look — 5M events/day average hides peak shape'). Offers a concrete unblocking move rather than a question-list."
+    }
+  ],
+  "summary": {"passed": 8, "failed": 1, "total": 9, "pass_rate": 0.889}
+}

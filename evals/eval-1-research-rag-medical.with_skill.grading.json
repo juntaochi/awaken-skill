@@ -1,0 +1,55 @@
+{
+  "expectations": [
+    {
+      "text": "Identifies the real research question behind the ask (e.g. 'under what query-type distribution does graph traversal pay for itself?' or 'what precision level at what cost is actually required?') rather than going straight to vector-vs-graph feature comparison.",
+      "passed": true,
+      "evidence": "Explicitly reframes: 'the choice is not really between three database technologies — it is between three bets about where citation ground-truth lives, who bears the cost when it fails, and what your team can operate safely on day 90.' Also directly asks 'What does accurate citation actually mean to your consumers?' and 'What is the cost asymmetry between the two query types?'"
+    },
+    {
+      "text": "Elevates to abstract structural framing — e.g. 'scalar similarity vs relational traversal', 'precision vs coverage under citation constraint', 'index-time investment vs query-time flexibility' — rather than enumerating features of Pinecone/Neo4j/etc.",
+      "passed": true,
+      "evidence": "Uses abstract structural framings like 'citation precision against conceptual recall; team competence now against architectural fit later; hybrid's coverage against hybrid's doubled failure surface' and 'pointer-precise, claim-level attribution' vs 'semantic recall across a neighborhood'. No Pinecone/Neo4j feature enumeration."
+    },
+    {
+      "text": "Offers at least one cross-domain analogue that illuminates the problem (e.g. legal precedent citation, academic peer review, medical chart rounds, library classification systems, genealogical research).",
+      "passed": true,
+      "evidence": "'a library patron can ask \"get me that exact book on warfarin dosing\" and \"what else is like this paper,\" and the Library of Congress answers both not by picking one index but by layering call numbers over subject keywords. Clinicians themselves reason both ways — differential diagnosis is graph traversal, literature search is similarity.'"
+    },
+    {
+      "text": "Names at least one fundamental tension AS A SHAPE (e.g. 'retrieval flexibility ↔ citation precision', 'setup complexity ↔ long-term query power', 'team skill envelope ↔ architectural ceiling').",
+      "passed": true,
+      "evidence": "'Keep these as live tensions rather than trying to resolve them: citation precision against conceptual recall; team competence now against architectural fit later; hybrid's coverage against hybrid's doubled failure surface.' Explicitly formatted as X-against-Y tensions."
+    },
+    {
+      "text": "Includes at least three structurally different perspectives (e.g. researcher / skeptic / practitioner; or clinician / ML engineer / compliance auditor).",
+      "passed": false,
+      "evidence": "The output briefly references clinicians ('Clinicians themselves reason both ways') and the ML team ('team has solid retrieval experience and zero graph-DB production experience'), and gestures at consumers of citation, but does not structurally present three distinct perspectives. It is written from one essayistic voice throughout, not multi-perspective."
+    },
+    {
+      "text": "Names the pattern — a concrete compression like 'heterogeneous-query-types-meets-citation-critical-domain' or similar.",
+      "passed": true,
+      "evidence": "'The pattern underneath is **bimodal-query-plus-asymmetric-cost with a team-capability gap disguised as an architecture choice**' — explicit compression of the pattern."
+    },
+    {
+      "text": "Does NOT collapse to a feature comparison table ('Vector DB: fast, cheap. Graph DB: expressive, complex') without surfacing the deeper structure.",
+      "passed": true,
+      "evidence": "No feature comparison table present. Discussion of vector vs graph is expressed as 'shaped for the second and structurally weak on the first' — framed as failure modes and structural fit, not feature enumeration."
+    },
+    {
+      "text": "Does NOT announce the scaffold (no 'Using awaken skill', no Q1/Q2/Q3 markers).",
+      "passed": true,
+      "evidence": "No scaffold announcements — flows as a unified essay with section headers like 'The surface framing is misleading', 'Two questions worth answering before architecture'. No mention of awaken skill or numbered Q markers."
+    },
+    {
+      "text": "Flags at least one load-bearing assumption the user should verify before picking (e.g. 'what's the actual ratio of specific lookup queries vs conceptual spanning queries?', 'what does misattribution cost practically — retraction? legal liability? trust erosion?').",
+      "passed": true,
+      "evidence": "'What does \"accurate citation\" actually mean to your consumers? Pointer-accurate (right paper identified) is a very different engineering problem from claim-accurate' and 'What is the cost asymmetry between the two query types? If conceptual spanning-questions are nice-to-have and drug-interaction lookups are the hot path...'"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 1,
+    "total": 9,
+    "pass_rate": 0.8889
+  }
+}

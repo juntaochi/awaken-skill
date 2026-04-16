@@ -1,0 +1,152 @@
+{
+  "skill_name": "awaken",
+  "iteration": 1,
+  "configs": [
+    "with_skill",
+    "without_skill"
+  ],
+  "eval_ids": [
+    0,
+    1,
+    2
+  ],
+  "runs": [
+    {
+      "eval_id": 0,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.889,
+        "passed": 8,
+        "failed": 1,
+        "total": 9,
+        "time_seconds": 70.1,
+        "tokens": 27690,
+        "tool_calls": 0,
+        "errors": 0
+      }
+    },
+    {
+      "eval_id": 0,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.333,
+        "passed": 3,
+        "failed": 6,
+        "total": 9,
+        "time_seconds": 41.7,
+        "tokens": 21365,
+        "tool_calls": 0,
+        "errors": 0
+      }
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.8889,
+        "passed": 8,
+        "failed": 1,
+        "total": 9,
+        "time_seconds": 97.0,
+        "tokens": 28435,
+        "tool_calls": 0,
+        "errors": 0
+      }
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.4444,
+        "passed": 4,
+        "failed": 5,
+        "total": 9,
+        "time_seconds": 41.6,
+        "tokens": 21431,
+        "tool_calls": 0,
+        "errors": 0
+      }
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 9,
+        "failed": 0,
+        "total": 9,
+        "time_seconds": 98.5,
+        "tokens": 28898,
+        "tool_calls": 0,
+        "errors": 0
+      }
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.7777777777777778,
+        "passed": 7,
+        "failed": 2,
+        "total": 9,
+        "time_seconds": 44.0,
+        "tokens": 21407,
+        "tool_calls": 0,
+        "errors": 0
+      }
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 0.926,
+        "stddev": 0.0641,
+        "min": 0.8889,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 88.5333,
+        "stddev": 15.9813,
+        "min": 70.1,
+        "max": 98.5
+      },
+      "tokens": {
+        "mean": 28341.0,
+        "stddev": 609.4612,
+        "min": 27690,
+        "max": 28898
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.5184,
+        "stddev": 0.2314,
+        "min": 0.333,
+        "max": 0.7778
+      },
+      "time_seconds": {
+        "mean": 42.4333,
+        "stddev": 1.3577,
+        "min": 41.6,
+        "max": 44.0
+      },
+      "tokens": {
+        "mean": 21401.0,
+        "stddev": 33.4066,
+        "min": 21365,
+        "max": 21431
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.41",
+      "time_seconds": "+46.1",
+      "tokens": "+6940"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "eval_id": 0,
+  "eval_name": "code-architecture-stuck",
+  "prompt": "I'm designing an event-driven data pipeline for our analytics platform and I'm stuck between two architectures: a classic pub/sub approach (NATS or Kafka with downstream consumers) versus a streaming-first approach (Flink or Arroyo with materialized views). The team is split — senior backend engineers want pub/sub for familiarity and operational simplicity, while the new data platform lead is pushing streaming-first for end-to-end latency and consistency guarantees. We process ~5M events/day, have ~20 downstream consumers planned (analytics, alerting, ML features, audit log, BI), and the team has limited streaming experience. Help me think through this.",
+  "assertions": [
+    {"text": "Surfaces the REAL objective — what the user is actually optimizing for (e.g. latency target, consumer evolution rate, operational cost envelope, team growth) — rather than restating the surface 'which architecture?' question."},
+    {"text": "Elevates to abstract structural framing (e.g. 'late-binding vs early-binding of consumers', 'incremental materialization vs eventual batching', 'compute-where-you-consume vs compute-where-you-produce') rather than comparing feature lists."},
+    {"text": "Offers at least one cross-domain analogue (biology / architecture / economics / infrastructure outside software / etc.) that illuminates the problem structure."},
+    {"text": "Names at least one fundamental tension AS A SHAPE (e.g. 'operational simplicity ↔ latency ceiling', 'team familiarity ↔ consumer evolution flexibility') without prematurely resolving it."},
+    {"text": "Includes at least three structurally different perspectives (e.g. author/operator/maintainer, or senior-backend/data-lead/future-team), and at least one perspective genuinely disagrees with the leading direction."},
+    {"text": "Names the pattern at the end — a concrete compression like 'this is a consumer-evolution-rate-determines-binding-time problem' or similar invented-if-needed name."},
+    {"text": "Does NOT lead with 'My recommendation is X' before describing the decision space."},
+    {"text": "Does NOT announce the scaffold (no 'Using awaken skill', no 'Q1/Q2/Q3' markers, no 'here's my five-step analysis'). The protocol is applied invisibly."},
+    {"text": "If a load-bearing inference is unverified (e.g. actual latency SLA unknown, consumer evolution rate unknown), asks at most ONE focused clarifying question rather than batching many or proceeding on assumptions."}
+  ]
+}
