@@ -1,0 +1,55 @@
+{
+  "expectations": [
+    {
+      "text": "Treats the question as DIAGNOSTIC (what is happening and why) rather than PRESCRIPTIVE (how to fix). Does not jump to '5 tips to improve code reviews'.",
+      "passed": true,
+      "evidence": "整篇文章的标题为'你们的 code review 文化发生了什么'，主体由'先把现象的结构剥掉领域名词'、'正在同时发生的三股力量'、'核心张力'、'这到底是什么——精确命名'构成，明确是 what/why 的诊断框架。结尾仅以一句话提示方向：'具体怎么动是下一步的话题'，未提供修复清单。"
+    },
+    {
+      "text": "Elevates to abstract structural framing (e.g. Goodhart's law, ritualization under incentive misalignment, process-as-substitute-for-judgment, Chesterton's fence in reverse) rather than listing observable symptoms.",
+      "passed": true,
+      "evidence": "显式调用了 Meyer & Rowan 的 decoupling、Power 的 'rituals of verification'、Goodhart/Campbell 效应、'注意力的 Gresham's law'、'legibility capture of judgment work'——全部为 pattern-level 的结构性命名。"
+    },
+    {
+      "text": "Offers at least one cross-domain analogue (academic peer review degradation / medical chart rounds / org-level bureaucratization / bureaucratic theater / scientific replication crisis / etc.).",
+      "passed": true,
+      "evidence": "'审计行业、学校的教学评估、食品安全认证、甚至医院的 length-of-stay 指标——走的是同一条路径，不是巧合。' 提供了多个跨域类比。"
+    },
+    {
+      "text": "Names at least one fundamental tension AS A SHAPE — e.g. '流程合规 ↔ 深度判断', '心理安全 ↔ 尖锐批评', 'process legibility ↔ judgment-based quality' — without prematurely resolving.",
+      "passed": true,
+      "evidence": "专门有一节 '核心张力，不能被调和只能被看见'，明确写出 '可验证性 ↔ 判断力'，并指出 '用可验证的外壳来承接不可验证的内核，这两个东西在长期里会分离'——标注为 shape 且未强行解决。"
+    },
+    {
+      "text": "Includes at least three structurally different perspectives (e.g. reviewer / reviewee / manager; or insider / outsider / time-one-year-later).",
+      "passed": true,
+      "evidence": "'从三个位置看同一件事' 一节提供了：流程设计者 / senior 工程师 reviewer / 六个月后的未来团队 三个结构性不同的立场，并强调 '它们不应该得出同一个结论'。"
+    },
+    {
+      "text": "Names the underlying pattern — e.g. '仪式化替代了判断', 'ritualization-under-incentive-misalignment', 'compliance-theater supplanting craftsmanship', or an invented-if-needed concrete name.",
+      "passed": true,
+      "evidence": "'这到底是什么——精确命名' 一节明确命名：'这是一次 decoupling 事件' 以及 'Goodhart + Gresham 的复合：代理指标取代了目标，廉价信号驱逐了昂贵信号'。"
+    },
+    {
+      "text": "Does NOT immediately list action items / fixes. The user explicitly said 'before I write a proposal' — the output stays diagnostic.",
+      "passed": true,
+      "evidence": "末段明确说：'具体怎么动是下一步的话题，但前提是先承认：现在的状态不是纪律问题，是激励结构的稳态输出。' 只给出方向性诊断约束（加强流程只会加深 decoupling），未列行动项。"
+    },
+    {
+      "text": "Does NOT announce the scaffold (no 'Using awaken skill', no Q1/Q2/Q3 markers). Response is in Chinese (matching the user's language).",
+      "passed": true,
+      "evidence": "未出现任何脚手架声明或 Q1/Q2/Q3 标记；全文中文（仅保留专业术语英文原名），结构由语义小标题构成。"
+    },
+    {
+      "text": "Surfaces at least one non-obvious contributing cause the user may not have considered (e.g. team size or composition shift, incentive structure around shipping, loss of senior reviewers, load distribution, asynchronous review fatigue).",
+      "passed": true,
+      "evidence": "第三股力量 '2 天延迟本身制造的反馈' 指出 '延迟不是中性事实，它是一种对深度的税'——把用户引以为豪的'平均耗时 2 天'反转为深度评审的成本税，属于非显然的贡献因。另外 senior 工程师视角下 '指出一个架构问题'的组织奖励为零，也是 incentive 结构上的非显然因。"
+    }
+  ],
+  "summary": {
+    "passed": 9,
+    "failed": 0,
+    "total": 9,
+    "pass_rate": 1.0
+  }
+}

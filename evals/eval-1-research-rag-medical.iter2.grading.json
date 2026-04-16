@@ -1,0 +1,55 @@
+{
+  "expectations": [
+    {
+      "text": "Identifies the real research question behind the ask (e.g. 'under what query-type distribution does graph traversal pay for itself?' or 'what precision level at what cost is actually required?') rather than going straight to vector-vs-graph feature comparison.",
+      "passed": true,
+      "evidence": "Opens by reframing: 'Your real decision is not vector vs graph vs hybrid. Those are implementations.' Names the underlying choice as 'how retrieval mechanics will map onto your two failure surfaces — citation integrity and query shape dispersion.' Later: 'let your own query distribution, not benchmark posts, decide whether the second layer pays for itself.'"
+    },
+    {
+      "text": "Elevates to abstract structural framing — e.g. 'scalar similarity vs relational traversal', 'precision vs coverage under citation constraint', 'index-time investment vs query-time flexibility' — rather than enumerating features of Pinecone/Neo4j/etc.",
+      "passed": true,
+      "evidence": "Section 'The tensions you must hold, not resolve' names abstract tensions: 'Precision <-> coverage', 'Legibility <-> operational surface', 'Now <-> later', 'Generality <-> power'. Frames 'A graph DB is a catalog. A vector DB is an index' — structural not feature-level. Avoids Pinecone/Neo4j feature lists."
+    },
+    {
+      "text": "Offers at least one cross-domain analogue that illuminates the problem (e.g. legal precedent citation, academic peer review, medical chart rounds, library classification systems, genealogical research).",
+      "passed": true,
+      "evidence": "Uses pre-digital library system analogue: 'the catalog (entity-level...) and the index (content-level...) were always separate artifacts maintained together. Catalogers and indexers did different work, and cross-references between the two were the actual retrieval UX.' This illuminates structure — routing between artifacts, accountability of routing."
+    },
+    {
+      "text": "Names at least one fundamental tension AS A SHAPE (e.g. 'retrieval flexibility ↔ citation precision', 'setup complexity ↔ long-term query power', 'team skill envelope ↔ architectural ceiling').",
+      "passed": true,
+      "evidence": "Explicit shaped tensions: 'Precision <-> coverage', 'Legibility <-> operational surface', 'Now <-> later', 'Generality <-> power' — all formatted as bidirectional pairs and annotated with 'Notice what the tensions have in common: none resolves by picking a DB.'"
+    },
+    {
+      "text": "Includes at least three structurally different perspectives (e.g. researcher / skeptic / practitioner; or clinician / ML engineer / compliance auditor).",
+      "passed": true,
+      "evidence": "Section 'Three standpoints, kept un-reconciled' gives: 'The skeptical maintainer' (12 months out), 'The clinician user' (trust-based), 'The researcher doing literature synthesis' — each with distinct risk and favored architecture. Closes with 'These three disagree. Keep the disagreement.'"
+    },
+    {
+      "text": "Names the pattern — a concrete compression like 'heterogeneous-query-types-meets-citation-critical-domain' or similar.",
+      "passed": true,
+      "evidence": "Section 'The pattern, named' explicitly calls it 'premature-hybrid-as-risk-hedging — a close cousin of Conway's law, where teams pick hybrid not because they have evidence both layers are needed but because committing feels irresponsible.'"
+    },
+    {
+      "text": "Does NOT collapse to a feature comparison table ('Vector DB: fast, cheap. Graph DB: expressive, complex') without surfacing the deeper structure.",
+      "passed": true,
+      "evidence": "No feature table. When benchmark numbers are cited (~54% vs 35%, ~33% vs 8%) they are immediately subordinated to the structural point: 'You have both query classes. That is the load-bearing fact.' Discussion stays at tension/standpoint level."
+    },
+    {
+      "text": "Does NOT announce the scaffold (no 'Using awaken skill', no Q1/Q2/Q3 markers).",
+      "passed": true,
+      "evidence": "No mention of 'awaken', no Q1/Q2/Q3 markers, no meta-references to a scaffold. Section headers are content-oriented ('What this problem structurally is', 'The tensions you must hold', 'Three standpoints', 'The pattern, named')."
+    },
+    {
+      "text": "Flags at least one load-bearing assumption the user should verify before picking (e.g. 'what's the actual ratio of specific lookup queries vs conceptual spanning queries?', 'what does misattribution cost practically — retraction? legal liability? trust erosion?').",
+      "passed": true,
+      "evidence": "Staged-commitment paragraph explicitly calls for measuring: 'Log every query. After 6-8 weeks, cluster the queries your vector system demonstrably fails on.' Also flags the UMLS dependency assumption ('locks you to their update cadence and coverage gaps') and the team-risk asymmetry ('vector mistakes feel like bad recall; graph mistakes feel like the system lied')."
+    }
+  ],
+  "summary": {
+    "passed": 9,
+    "failed": 0,
+    "total": 9,
+    "pass_rate": 1.0
+  }
+}

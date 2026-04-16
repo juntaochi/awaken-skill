@@ -23,24 +23,39 @@ Five self-questions, applied invisibly, each with a preferred *externalization* 
 | Q4 | Perspective traversal (≥3 standpoints) | Parallel sub-agents for high-stakes |
 | Q5 | Pattern naming + verification | `WebSearch` / `Grep` to verify before inventing |
 
-## Benchmark (iteration 1)
+## Benchmark
 
-Mean pass rate across 3 test cases from three unrelated domains (code architecture / RAG research / Chinese diagnostic meta-reasoning):
+Mean pass rate across 3 test cases from three unrelated domains (code architecture / RAG research / Chinese diagnostic meta-reasoning), across two iterations of the skill:
 
-| Configuration | Mean pass rate | Delta |
-|---|---|---|
-| with-skill | **92.6 %** | **+40.8 pp** |
-| baseline | 51.8 % | — |
+| Configuration | Mean pass rate | vs baseline | Mean tool calls |
+|---|---|---|---|
+| no skill (baseline) | 51.8 % | — | ~2 |
+| v1 — context-only scaffold | 92.6 % | +40.8 pp | ~3.7 |
+| **v2 — externalization-driven** | **100 %** | **+48.2 pp** | **~11** |
 
 ![benchmark](benchmark.png)
 
 ### Per-eval breakdown
 
-| Eval | with-skill | baseline | Δ |
+| Eval | baseline | v1 | v2 |
 |---|---|---|---|
-| Code architecture (pub/sub vs streaming-first) | 89% | 33% | +56 pp |
-| RAG for medical research (vector vs graph vs hybrid) | 89% | 44% | +45 pp |
-| Code review culture diagnosis (Chinese) | **100%** | 78% | +22 pp |
+| Code architecture (pub/sub vs streaming-first) | 33 % | 89 % | **100 %** |
+| RAG for medical research (vector vs graph vs hybrid) | 44 % | 89 % | **100 %** |
+| Code review culture diagnosis (Chinese) | 78 % | **100 %** | **100 %** |
+
+### Why v2 matters: the skill now actually changes *behavior*
+
+In iteration 1, tool-call analysis revealed the skill was a pure *context* intervention — the with-skill subagent only read `SKILL.md` and then produced its response in a single prose pass. The output quality differed, but the *actions* taken were identical to the baseline (both just `ls` + `Write`).
+
+v2 rewrote the skill's protocol to explicitly drive observable externalization — each of the five questions now has a preferred tool-call that leaves a trace (WebSearch for cross-domain analogues, scratch-file writes for Munger inversion, parallel sub-agents for high-stakes perspective work). Result:
+
+| Eval | v1 tool calls | v2 tool calls |
+|---|---|---|
+| Code architecture | 3 | **12** (3 WebSearches + inversion scratch) |
+| RAG medical | 3 | **10** |
+| Code review culture | 5 | **11** (3 WebSearches + inversion scratch) |
+
+The skill now forces the agent to **un-dormant its own knowledge** by searching for fresh tokens from cross-domain sources before finalizing the answer, rather than generating single-shot prose over whatever was already in context. Cost: +34 % tokens, +40 % wall-clock time — acceptable for the target use case (high-stakes or open-ended reasoning).
 
 ## Example — code review culture diagnosis
 
@@ -75,9 +90,9 @@ User prompt (translated): *"Our team's code review culture is procedurally compl
 ## What's in this repo
 
 - `SKILL.md` — the skill itself (copy to `~/.claude/skills/awaken/SKILL.md`)
-- `examples/` — eval prompts + with-skill and baseline outputs, so you can see exactly what the skill produces
-- `evals/` — machine-readable evaluation data (eval prompts + assertions + grading results)
-- `benchmark.png` / `benchmark.svg` — iteration-1 pass-rate comparison
+- `examples/` — eval prompts + baseline, iteration-1, and iteration-2 outputs side-by-side, so you can see exactly what the skill produces (the `with_skill_iter2.md` files are the current version)
+- `evals/` — machine-readable evaluation data (eval prompts + assertions + grading results for both iterations)
+- `benchmark.png` / `benchmark.svg` — pass-rate comparison across baseline / v1 / v2
 
 ## Installation
 
@@ -90,9 +105,11 @@ The skill will be discovered automatically by Claude Code on next session start.
 
 ## Methodology
 
-Each eval was run twice: once with a subagent instructed to read `SKILL.md` and apply the protocol, once with an identical-prompt subagent given no skill. Outputs were graded by a third independent subagent against per-eval assertions (9 per eval). Full prompts, outputs, and grading JSON are in `examples/` and `evals/` for reproducibility.
+Each eval was run twice per iteration: once with a subagent instructed to read `SKILL.md` and apply the protocol, once with an identical-prompt subagent given no skill (baseline is iteration-independent). Outputs were graded by an independent subagent against per-eval assertions (9 per eval, same assertions across iterations for apples-to-apples comparison). Full prompts, outputs, and grading JSON are in `examples/` and `evals/` for reproducibility.
 
-Known limitation (iteration 1): the skill changed output *quality* but the subagent's tool-call behavior was nearly identical to the baseline (only extra call: `Read` of the SKILL.md itself). Iteration 2 rewrote the skill to explicitly drive externalization (file writes, WebSearch, sub-agent spawns). Results forthcoming.
+**What changed from v1 to v2.** Iteration 1 revealed a hidden weakness: the skill changed output *quality* but the subagent's tool-call behavior was nearly identical to the baseline (only extra call: `Read` of the SKILL.md itself). The skill was a pure context intervention — it reshaped what the model wrote without changing what it did. Iteration 2 rewrote the protocol around an "externalization principle" — each of the five self-questions now has a preferred tool-call (WebSearch for cross-domain analogues, `Write` for Munger inversion scratch files, parallel sub-`Agent` for perspective traversal, `AskUserQuestion` for unverified load-bearing assumptions). The result: tool-call count per run ~3× (3.7 → 11), pass rate hits the 100 % ceiling, and the qualitative pattern across all three evals is "the agent refuses to answer inside the user's given framing — it surfaces a structural reframe first."
+
+**Open question for iteration 3.** The v2 behavior change is driven by text instructions inside `SKILL.md` — the subagent *reads* the skill and *complies* with its externalization guidance. Whether this compliance holds under adversarial conditions (busy main conversation context, multiple skills triggering at once, time pressure fallbacks) hasn't been tested. That's the next axis of pressure-testing.
 
 ## Credits
 
